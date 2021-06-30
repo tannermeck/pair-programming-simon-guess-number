@@ -3,6 +3,8 @@
 // initialize state
 const btn = document.getElementById('btn-id');
 const resultsSpan = document.getElementById('span-id');
+const triesLeftSpan = document.getElementById('triesSpan-id');
+const highOrLowSpan = document.getElementById('highOrLowSpan-id');
 const userGuess = document.getElementById('user-guess-id');
 
 const targetNumber = Math.floor(Math.random()*20);
