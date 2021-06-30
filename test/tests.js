@@ -9,7 +9,7 @@ test('tests if numbers are identical', expect => {
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = compareNumbers(2, 2); // use your function here
+    const actual = compareNumbers(5, 2); // use your function here
     
 
     //Expect
