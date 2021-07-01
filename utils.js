@@ -1,12 +1,12 @@
 export function compareNumbers(guess, correctNumber) {
     if (guess === correctNumber) {
-        return 'you guessed right!';
+        return 0;
     }
     else if (guess < correctNumber) {
-        return 'Your guess is too LOW.';
+        return -1;
     }
     else if (guess > correctNumber) {
-        return 'Your guess is too HIGH.';
+        return 1;
     } else {
         return;
     }
