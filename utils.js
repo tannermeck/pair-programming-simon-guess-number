@@ -8,7 +8,7 @@ export function compareNumbers(guess, correctNumber) {
     else if (guess > correctNumber) {
         return 'Your guess is too HIGH.';
     } else {
-        return "keep guessing..";
+        return;
     }
 }
 

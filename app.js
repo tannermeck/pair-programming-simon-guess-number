@@ -22,21 +22,28 @@ btn.addEventListener('click', ()=> {
   guessesRemaining--;
   const guessValue = userGuess.value;
   let numberGuess = Number(guessValue);
+
   console.log(targetNumber, numberGuess);
 
-  if (guessesRemaining === 0) {
-    resultsSpan.textContent = 'NO MORE';
-    btn.disabled = true;
-  }
-  if (numberGuess === targetNumber) {
+  if (numberGuess === targetNumber || guessesRemaining === 0) {
     resultsSpan.textContent = 'you guessed right!';
+    highOrLowSpan.style.display = 'none';
+    btn.disabled = true;
+    if (guessesRemaining === 0) {
+      resultsSpan.textContent = 'No more guesses! You have lost!';
+      triesLeftSpan.style.display = 'none';
+    }
   }
   else if (numberGuess < targetNumber) {
     highOrLowSpan.textContent = 'Your guess is too LOW.';
+    resultsSpan.textContent = "keep guessing..";
+    triesLeftSpan.textContent = `you have ${guessesRemaining} left`;
   } 
   else if (numberGuess > targetNumber) {
     highOrLowSpan.textContent = 'Your guess is too HIGH.';
-  } else {
     resultsSpan.textContent = "keep guessing..";
+    triesLeftSpan.textContent = `you have ${guessesRemaining} left`;
+  } else {
+    return;
   }
 })
