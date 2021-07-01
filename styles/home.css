@@ -1,2 +1,16 @@
 /* add home page styles here */
 
+main {
+    padding-top: 20px;
+    background-color: whitesmoke;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+input, button, span {
+    margin: 5px 0 5px 0;
+}
+
