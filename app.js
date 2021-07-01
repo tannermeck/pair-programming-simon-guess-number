@@ -25,43 +25,24 @@ btn.addEventListener('click', ()=> {
 
   console.log(targetNumber, numberGuess);
 
-//   if (compareNumbers(numberGuess, targetNumber) === 0) {
-//       resultsSpan.textContent = 'You guessed right!! Congrats!';
-//       highOrLowSpan.style.display = 'none';
-//       btn.disabled = true;
-//       if (guessesRemaining === 0) {
-//           resultsSpan.textContent = 'No more guesses! Game over!';
-//           triesLeftSpan.style.display = 'none';
-//       };
-//   } else if (compareNumbers(numberGuess, targetNumber) === -1) {
-//       highOrLowSpan.textContent = 'Your guess is too LOW.';
-//       resultsSpan.textContent = "Keep guessing..";
-//       triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
-//   } else if (compareNumbers(numberGuess, targetNumber) === 1) {
-//       highOrLowSpan.textContent = 'Your guess is too HIGH.';
-//       resultsSpan.textContent = "Keep guessing..";
-//       triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
-//   } else {
-//     return;
-//   }
-// })
-
-
-  if (numberGuess === targetNumber || guessesRemaining === 0) {
+  if (compareNumbers(numberGuess, targetNumber) === 0) {
     resultsSpan.textContent = 'You guessed right!! Congrats!';
     highOrLowSpan.style.display = 'none';
+    triesLeftSpan.style.display = 'none';
     btn.disabled = true;
-    if (guessesRemaining === 0) {
-      resultsSpan.textContent = 'No more guesses! Game over!';
-      triesLeftSpan.style.display = 'none';
-    }
   }
-  else if (numberGuess < targetNumber) {
+  if (guessesRemaining === 0) {
+    resultsSpan.textContent = 'No more guesses! Game over!';
+    triesLeftSpan.style.display = 'none';
+    highOrLowSpan.style.display = 'none';
+    btn.disabled = true;
+  }
+  else if (compareNumbers(numberGuess, targetNumber) === -1) {
     highOrLowSpan.textContent = 'Your guess is too LOW.';
     resultsSpan.textContent = "Keep guessing..";
     triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
   } 
-  else if (numberGuess > targetNumber) {
+  else if (compareNumbers(numberGuess, targetNumber) === 1) {
     highOrLowSpan.textContent = 'Your guess is too HIGH.';
     resultsSpan.textContent = "Keep guessing..";
     triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
@@ -69,3 +50,28 @@ btn.addEventListener('click', ()=> {
     return;
   }
 })
+
+  // ---------------------IF/ELSE CODE PRIOR TO REFACTORING, below..
+
+  // if (numberGuess === targetNumber || guessesRemaining === 0) {
+  //   resultsSpan.textContent = 'You guessed right!! Congrats!';
+  //   highOrLowSpan.style.display = 'none';
+  //   triesLeftSpan.style.display = 'none';
+  //   btn.disabled = true;
+  //   if (guessesRemaining === 0) {
+  //     resultsSpan.textContent = 'No more guesses! Game over!';
+  //     triesLeftSpan.style.display = 'none';
+  //   }
+  // }
+  // else if (numberGuess < targetNumber) {
+  //   highOrLowSpan.textContent = 'Your guess is too LOW.';
+  //   resultsSpan.textContent = "Keep guessing..";
+  //   triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
+  // } 
+  // else if (numberGuess > targetNumber) {
+  //   highOrLowSpan.textContent = 'Your guess is too HIGH.';
+  //   resultsSpan.textContent = "Keep guessing..";
+  //   triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
+  // } else {
+  //   return;
+  // }
