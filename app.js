@@ -3,6 +3,7 @@ import { compareNumbers } from './utils.js';
 
 // initialize state
 const btn = document.getElementById('btn-id');
+const resetBtn = document.getElementById('reset-id');
 const resultsSpan = document.getElementById('span-id');
 const triesLeftSpan = document.getElementById('triesSpan-id');
 const highOrLowSpan = document.getElementById('highOrLowSpan-id');
@@ -18,7 +19,7 @@ const targetNumber = Math.floor(Math.random()*20);
   // update DOM to reflect the new state
 
 btn.addEventListener('click', ()=> {
-  
+
   guessesRemaining--;
   const guessValue = userGuess.value;
   let numberGuess = Number(guessValue);
@@ -31,7 +32,11 @@ btn.addEventListener('click', ()=> {
     triesLeftSpan.style.display = 'none';
     btn.disabled = true;
   }
-  if (guessesRemaining === 0) {
+  if (numberGuess < 0 || numberGuess > 20) {
+    alert('Please choose a number between 1 and 20.');
+    triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
+  }
+  else if (guessesRemaining === 0) {
     resultsSpan.textContent = 'No more guesses! Game over!';
     triesLeftSpan.style.display = 'none';
     highOrLowSpan.style.display = 'none';
@@ -39,17 +44,24 @@ btn.addEventListener('click', ()=> {
   }
   else if (compareNumbers(numberGuess, targetNumber) === -1) {
     highOrLowSpan.textContent = 'Your guess is too LOW.';
-    resultsSpan.textContent = "Keep guessing..";
+    resultsSpan.textContent = 'Keep guessing..';
     triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
   } 
   else if (compareNumbers(numberGuess, targetNumber) === 1) {
     highOrLowSpan.textContent = 'Your guess is too HIGH.';
-    resultsSpan.textContent = "Keep guessing..";
+    resultsSpan.textContent = 'Keep guessing..';
     triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
   } else {
     return;
   }
 })
+
+resetBtn.addEventListener('click', ()=> {
+  guessesRemaining = 4;
+  btn.disabled = false;
+  userGuess.value = '';
+})
+
 
   // ---------------------IF/ELSE CODE PRIOR TO REFACTORING, below..
 
