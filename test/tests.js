@@ -20,29 +20,29 @@ test('FAIL test to see if numbers are identical', expect => {
 test('FAIL test to see if numbers are LESS than', expect => {
     //Arrange
  // Set up your arguments and expectations
- const expected = -1;
+    const expected = -1;
  
  //Act 
  // Call the function you're testing and set the result to a const
- const actual = compareNumbers(18, 1); // use your function here
+    const actual = compareNumbers(18, 1); // use your function here
  
 
  //Expect
  // Make assertions about what is expected versus the actual result
- expect.equal(actual, expected);
+    expect.equal(actual, expected);
 });
 
 test('FAIL test to see if numbers are MORE than', expect => {
     //Arrange
  // Set up your arguments and expectations
- const expected = 1;
+    const expected = 1;
  
  //Act 
  // Call the function you're testing and set the result to a const
- const actual = compareNumbers(12, 19); // use your function here
+    const actual = compareNumbers(12, 19); // use your function here
  
 
  //Expect
  // Make assertions about what is expected versus the actual result
- expect.equal(actual, expected);
+    expect.equal(actual, expected);
 });
