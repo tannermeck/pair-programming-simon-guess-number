@@ -1,4 +1,4 @@
-import { compareNumbers } from './utils.js';
+import { compareNumbers, hints } from './utils.js';
 
 const btn = document.getElementById('btn-id');
 const resetBtn = document.getElementById('reset-id');
@@ -16,12 +16,15 @@ btn.addEventListener('click', ()=> {
     const guessValue = userGuess.value;
     let numberGuess = Number(guessValue);
 
+    const hintsReturn = hints(compareNumbers(numberGuess, targetNumber));
+    resultsSpan.textContent = hintsReturn;
+    highOrLowSpan.textContent = hintsReturn;
+
     if (numberGuess < 0 || numberGuess > 20) {
         alert('Please choose a number between 1 and 20.');
         triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
     }
     if (compareNumbers(numberGuess, targetNumber) === 0) {
-        resultsSpan.textContent = 'You guessed right!! Congrats!';
         highOrLowSpan.style.display = 'none';
         triesLeftSpan.style.display = 'none';
         btn.disabled = true;
@@ -33,18 +36,17 @@ btn.addEventListener('click', ()=> {
         btn.disabled = true;
     }
     else if (compareNumbers(numberGuess, targetNumber) === -1) {
-        highOrLowSpan.textContent = 'Your guess is too LOW.';
         resultsSpan.textContent = 'Keep guessing..';
         triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
     } 
     else if (compareNumbers(numberGuess, targetNumber) === 1) {
-        highOrLowSpan.textContent = 'Your guess is too HIGH.';
         resultsSpan.textContent = 'Keep guessing..';
         triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
     } else {
         return;
     } 
 });
+
 
 resetBtn.addEventListener('click', ()=> {
     location.reload();
