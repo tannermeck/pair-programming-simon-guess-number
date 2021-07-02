@@ -24,6 +24,7 @@ btn.addEventListener('click', ()=> {
         alert('Please choose a number between 1 and 20.');
         triesLeftSpan.textContent = `You have ${guessesRemaining} guesses left`;
     }
+
     if (compareNumbers(numberGuess, targetNumber) === 0) {
         highOrLowSpan.style.display = 'none';
         triesLeftSpan.style.display = 'none';
@@ -46,7 +47,6 @@ btn.addEventListener('click', ()=> {
         return;
     } 
 });
-
 
 resetBtn.addEventListener('click', ()=> {
     location.reload();

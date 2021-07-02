@@ -13,7 +13,6 @@ export function compareNumbers(guess, correctNumber) {
 }
 
 export function hints(numberValue) {
-    // const number = numberGuess + targetNumber;
     if (numberValue === 0) {
         return 'You guessed right. Congrats!';
     }
@@ -24,3 +23,4 @@ export function hints(numberValue) {
         return 'Your guess is too HIGH!';
     }
 }
+
