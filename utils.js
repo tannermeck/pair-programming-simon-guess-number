@@ -12,3 +12,15 @@ export function compareNumbers(guess, correctNumber) {
     }
 }
 
+export function hints(numberValue) {
+    // const number = numberGuess + targetNumber;
+    if (numberValue === 0) {
+        return 'You guessed right. Congrats!';
+    }
+    if (numberValue === -1) {
+        return 'Your guess is too LOW!';
+    }
+    if (numberValue === 1) {
+        return 'Your guess is too HIGH!';
+    }
+}
